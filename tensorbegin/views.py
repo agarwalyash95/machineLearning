@@ -1,3 +1,8 @@
 from django.shortcuts import render
+import tensorflow as tf
+from django.http import HttpResponse
 
-# Create your views here.
+
+def home(request):
+    print(tf.version)
+    return render(request, 'home.html', {'version': tf.version})
