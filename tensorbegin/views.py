@@ -4,5 +4,5 @@ from django.http import HttpResponse
 
 
 def home(request):
-    print(tf.version)
-    return render(request, 'home.html', {'version': tf.version})
+    tf_var = tf.ones([5, 5, 5])
+    return render(request, 'home.html', {'version': tf_var , 'shape': tf_var.shape})
