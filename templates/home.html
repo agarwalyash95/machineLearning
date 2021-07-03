@@ -5,9 +5,26 @@
     <title>TF</title>
 </head>
 <body>
-        <center>
-            <h1>{{ version }}</h1>
-            <h2> Shape: {{shape}}</h2>
-        </center>
+<center>
+    <!--  FIle upload code -->
+    <form action = 'add_file' method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="myfile">
+        <button type="submit">Upload</button>
+    </form>
+
+    <form action="calculate" method="POST">
+        {% csrf_token %}
+        <select name='questions' id="questions" style="color: plum;" size="3" multiple>
+            {% for v in train %}
+            <option value="{{v}}">{{v}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="send">
+    </form>
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</center>
 </body>
 </html>

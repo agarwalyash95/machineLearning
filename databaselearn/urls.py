@@ -19,7 +19,5 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('add_file', views.add_file, name='add_file'),
-    path('', views.home, name='home'),
-    path('calculate', views.calculate, name='calculate'),
+    path('', views.homepage, name='homepage'),
 ]
